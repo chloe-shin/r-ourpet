@@ -3,7 +3,7 @@
 
 #### Ourpet is 
 1. Website for people who loves pet
-2. Website for dog owner who is busy or travels a lot
+2. Website for pet owner who is busy or travels a lot
 3. Website which can connect dog owner and dog sitter
 
 ### Product Goal
