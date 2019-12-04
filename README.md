@@ -50,6 +50,6 @@ I came up with this idea - Airbnb for dog - which is easy to use and can find do
 * Comment
 
 ### Landing Page
-Check out the landing page at this link: ()
+Check out the landing page at this link: (https://ourpet.netlify.com/)
 
 
