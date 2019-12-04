@@ -23,7 +23,7 @@ function App(props) {
 
   useEffect(()=>{
     getUser()
-    window.history.replaceState({}, document.title, window.location.pathname);
+    // window.history.replaceState({}, document.title, window.location.pathname);
   },[])
 
   const getUser = async() =>{
