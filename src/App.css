@@ -1,22 +1,74 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Alatsi|Amatic+SC|Anton|Barlow+Condensed|Bebas+Neue|Indie+Flower|Varela+Round&display=swap');
+
+.navbar .navbar-collapse {
+  text-align: left;
+}
+.sign-up{
+  font-family: montserrat;
+  font-size: 0.85rem;
+  color: black !important;
+}
+.sign-in{
+  font-family: montserrat;
+  font-size: 0.85rem;
+  color: black !important;
+} 
+
+.nav {
+  background-color: transparent !important  ;
+  margin: 1.2rem 2rem 0 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
+
+/* .home {
+  background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url("/img/dog.jpg");
+  background-image: url("/img/dog-suitcase2.jpg");
+  height: 80vh;
+  background-size: cover;
+  background-position-y: 30%;
+}
+ */
+.dog {
+  margin-top: 10rem;
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.booking {
+  margin-top: 5rem;
+  /* box-shadow: 0px 2px 5px rgba(0,0,0, .2); */
+  border: none;
+  padding: 35px;  
 }
 
-.App-link {
-  color: #09d3ac;
+.ourpet {
+  font-family: montserrat;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color:#F25E50;
+}
+
+.welcome {
+  font-family: 'Amatic SC', cursive;
+  font-weight: 900;
+  font-size: 50px;
+  /* color:#F25E50 !important; */
+}
+
+.navbar-toggler {
+  border: none !important;
+}
+
+.MuiFormLabel-root.Mui-focused {
+  color: #F25E50 !important;
+}
+
+.MuiInputBase-fullWidth-root.Mui-focused {
+  border: 1px solid black !important;
+}
+
+.in {
+  width: 0.9rem;
+}
+.container {
+  background-color: #FEF7ED;
 }

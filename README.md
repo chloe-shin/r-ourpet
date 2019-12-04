@@ -1,68 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Project Brief: `Ourpet`
 
-In the project directory, you can run:
+#### Ourpet is 
+1/ Website for people who loves pet
+2/ Website for dog owner who is busy or travels a lot
+3/ Website which can connect dog owner and dog sitter
 
-### `npm start`
+### Product Goal
+#### We will help pet owner to find cozy and comfortable place for dogs.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Motivation
+#### I want to help to find the most comfortable place for pet
+I like share economy model of Airbnb or Uber that connects people to share economy because it makes business possible with existing resources. So I wanted to build business based on share economy model.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Also as a dog owner and an expat living abroad who loves travelling, often I found it's very difficult to find a place for my pet to take a rest as she does at home. I believe many dog owners don’t want their pet to be locked in the cage or feel abandoned while they are gone.
 
-### `npm test`
+I came up with this idea - Airbnb for dog - which is easy to use and can find dog friendly home with heartful sitter who will take care of our pet with love. It’s very helpful app for traveler seeking for affordable but comfortable accommodation for their beloved pet!
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### User Understanding - What are their pain points?
+*	Hard to find the trustable dog sitting places and it’s very limited in HCM city.
+*	Even if they find the dog sitting place, most of time the dogs need to be locked in the cage and it would be very difficult to be taken cared one by one.
 
-### `npm run build`
+### User Understanding - Who are they? (Demographic)
+#### Busy young professionals – with mostly age group in 25-35
+*	My target demographic is expats living in Ho Chi Minh City, who is travelling abroad often, who is looking for the most comfortable place for their dog and willing to pay more for that.
+*	My target demographic is always opened for the new experience and  willing to explore new service.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### User Understanding - User persona
+1.	Jenny is 28 years old expat who is working and living in Ho Chi Minh.
+2.	She has a dog and travels a lot for business trip and go back to her country which is Germany once or twice a year.
+3.	She uses social media app such as Instagram, facebook, whatsapp, snapchat etc.
+4.	She likes to take photo and post on Instagram, facebook, snapthat…etc.
+5.	She is adventurous person and likes exploring new things 
+6.	She’s looking for a cool, clean place with accessible location and affordable price.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Monetization Model
+#### Pet owner shall pay service fee to pet sitters following given conditions / request.	
+1.	Ourpet charges pet sitters a 10% fee, which will be taken out of the service fee subtotal.
+2.	Ourpet charges pet owner a 3% - 10% fee whenever a reservation is completed to cover company costs. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Key Features and Technical Implementation plan
+* Login with Facebook : API, Python, React
+* Search / Booking : Python, Flask, Database, React
+  1.Location
+  2.Kind(dog/cat)
+  3.Size(s/m/l)
+  4.Price
+* Contact sitter
+* Comment
 
-### `npm run eject`
+### Landing Page
+Check out the landing page at this link: ()
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
