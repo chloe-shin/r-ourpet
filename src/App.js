@@ -28,7 +28,7 @@ function App(props) {
 
   const getUser = async() =>{
     const token = existingToken || accessToken
-    const res = await fetch('https://127.0.0.1:5000/getuser',{
+    const res = await fetch(process.env.REACT_APP_BURL + '/getuser',{
       headers: {
         Authorization: `Token ${token}`
       }
