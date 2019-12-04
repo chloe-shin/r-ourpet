@@ -1,13 +1,13 @@
 
-# Project Brief: `Ourpet`
+# Project Brief: `Find a place with love for - Ourpet`
 
 #### Ourpet is 
-1/ Website for people who loves pet
-2/ Website for dog owner who is busy or travels a lot
-3/ Website which can connect dog owner and dog sitter
+1. Website for people who loves pet
+2. Website for dog owner who is busy or travels a lot
+3. Website which can connect dog owner and dog sitter
 
 ### Product Goal
-#### We will help pet owner to find cozy and comfortable place for dogs.
+* We will help pet owner to find cozy and comfortable place for dogs.
 
 ### Motivation
 #### I want to help to find the most comfortable place for pet
