@@ -42,10 +42,10 @@ I came up with this idea - Airbnb for dog - which is easy to use and can find do
 ### Key Features and Technical Implementation plan
 * Login with Facebook : API, Python, React
 * Search / Booking : Python, Flask, Database, React
-  1.Location
-  2.Kind(dog/cat)
-  3.Size(s/m/l)
-  4.Price
+ 1. Location
+ 2. Kind(dog/cat)
+ 3. Size(s/m/l)
+ 4. Price
 * Contact sitter
 * Comment
 
