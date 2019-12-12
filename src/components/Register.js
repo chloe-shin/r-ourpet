@@ -9,7 +9,8 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles, createMuiTheme,  ThemeProvider } from '@material-ui/core/styles';
+import { orange } from '@material-ui/core/colors';
 
 import Container from '@material-ui/core/Container';
 
@@ -48,7 +49,11 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
-
+const theme = createMuiTheme({
+  palette: {
+    primary: orange
+    },
+});
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -107,7 +112,7 @@ export default function SignUp() {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-
+      <ThemeProvider theme={theme}>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -182,6 +187,7 @@ export default function SignUp() {
       <Box mt={5}>
         <Copyright />
       </Box>
+      </ThemeProvider>
     </Container>
   );
 }

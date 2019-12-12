@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -13,7 +12,8 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { pink, orange, indigo } from '@material-ui/core/colors';
 import Container from '@material-ui/core/Container';
 
 function Copyright() {
@@ -28,6 +28,13 @@ function Copyright() {
     </Typography>
   );
 }
+const theme = createMuiTheme({
+  palette: {
+    primary: orange,
+    secondary: indigo,
+    error: pink,
+  },
+});
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -51,6 +58,7 @@ const useStyles = makeStyles(theme => ({
 
 
 
+
 export default function SignIn(props) {
   const classes = useStyles();
   const [input, setInput] = useState({})
@@ -65,7 +73,7 @@ export default function SignIn(props) {
   }
 
   //fetch API backend and send data to database
-  const signin = async(e) => {
+  const signin = async (e) => {
     e.preventDefault()
     const resp = await fetch(process.env.REACT_APP_BURL + "/signin", {
       method: 'POST',
@@ -86,107 +94,103 @@ export default function SignIn(props) {
         alert(data.message)
       }
     }
-   
+
   }
- 
 
-return (
-  <Container component="main" maxWidth="xs">
-    <CssBaseline />
-    <div className={classes.paper}>
-      <Avatar className={classes.avatar}>
-        <LockOutlinedIcon />
-      </Avatar>
-      <Typography component="h1" variant="h5">
-        Sign in
+
+  return (
+    <Container component="main" maxWidth="xs">
+
+      <ThemeProvider theme={theme}>
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
         </Typography>
-      <form className={classes.form} noValidate onChange={e => handleChange(e)} onSubmit={e => signin(e)}>
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          id="email"
-          label="Email Address"
-          name="email"
-          autoComplete="email"
-          autoFocus
-        />
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          name="password"
-          label="Password"
-          type="password"
-          id="password"
-          autoComplete="current-password"
-        />
-        <FormControlLabel
-          control={<Checkbox value="remember" color="primary" />}
-          label="Remember me"
-        />
+          <form className={classes.form} noValidate onChange={e => handleChange(e)} onSubmit={e => signin(e)}>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
 
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          className={classes.submit}
-        >
-          Sign In
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign In
           </Button>
 
-        <Grid container justify="space-between">
-          <Grid item>
-            <a href= {`${process.env.REACT_APP_BURL}/login/facebook`} variant="body2">
+            <a href={`${process.env.REACT_APP_BURL}/login/facebook`} variant="body2">
               <Button
                 fullWidth
                 variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                <i class="fab fa-facebook-square"></i> &nbsp; Facebook
-            </Button>
+                color="secondary"
+                style={{backgroundColor:'#3b5998'}}
+                >
+                <i class="fab fa-facebook-square"></i> &nbsp; Sign in with Facebook
+              </Button>
             </a>
-          </Grid>
-          <Grid item >
-            <Link href="#" variant="body2">
+
+            <a href="#" >
               <Button
-                type="submit"
+                className ="google"
                 fullWidth
                 variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                <i class="fab fa-google"></i> &nbsp; Google
-            </Button>
+                style={{margin: "5px 0px 20px 0px", backgroundColor: 'white'}}>
+                <img src="/img/search.png" width="15" /> &nbsp; Sign in with Google 
+              </Button>
+            </a>
+
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
             </Link>
-          </Grid>
+              </Grid>
+              <Grid item>
+                <Link href="/register" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
 
-        </Grid>
+            </Grid>
 
-        <Grid container>
-          <Grid item xs>
-            <Link href="#" variant="body2">
-              Forgot password?
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link href="/register" variant="body2">
-              {"Don't have an account? Sign Up"}
-            </Link>
-          </Grid>
+          </form>
+        </div>
+      </ThemeProvider>
 
-        </Grid>
+      <Box mt={8}>
+        <Copyright />
+      </Box>
 
-      </form>
-    </div>
-    <Box mt={8}>
-      <Copyright />
-    </Box>
-  </Container>
+    </Container>
 
-);
+  );
 }

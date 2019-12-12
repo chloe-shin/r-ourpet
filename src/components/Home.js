@@ -1,30 +1,41 @@
 
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Col, Row, Container, Form} from 'react-bootstrap';
-import { AwesomeButton } from "react-awesome-button";
+import { Col, Row, Container } from 'react-bootstrap';
 import "react-awesome-button/dist/styles.css";
+import ReactTypingEffect from 'react-typing-effect';
 import Forms from './Form';
 
-
-export default function Home() {
+export default function Home(props) {
 
   return (
-    <Container fluid={true}>
-
+    <Container fluid={true} className="homepage">
       <Row>
-      <Col sm="4" md="4" lg= "6">
-      <div className="booking ">
-        <h4 className="welcome">WELCOME. <br />
-          Are you ready to board?</h4> <br/>
-       <Forms />
-      </div>
-    </Col>
-        <Col sm="8" md="8" lg="6">
-          <img className="dog" src="/img/bg.png" fluid/>
+        <Col sm={{ span: 5, offset: 0 }} md={{ span: 5, offset: 0 }} lg={{ span: 6, offset: 0 }}>
+          <div className="booking ">
+            <h5 className="welcome">
+              WELCOME.
+              <ReactTypingEffect
+                text= "to board? "
+                staticText="Are you ready"
+                speed="70"
+                eraseDelay="700"
+                cursor= <i class="fas fa-plane"></i>
+                cursorClassName="plane"
+              />
+            </h5> <br />
+            <Forms filter={props.filter} setFilter={props.setFilter} />
+          </div>
         </Col>
-       
+        <Col sm={{ span: 7, offset: 0 }} md={{ span: 7, offset: 0 }} lg={{ span: 6, offset: 0 }} style={{ backgroundColor: "#FFD256" }}
+          className="dogbg">
+
+        </Col>
+      </Row>
+      <Row>
+
       </Row>
     </Container>
   )
 }
+
