@@ -16,11 +16,11 @@ export default function Home(props) {
             <h5 className="welcome">
               WELCOME.
               <ReactTypingEffect
-                text= "to board? "
+                text= "to board?  "
                 staticText="Are you ready"
                 speed="70"
                 eraseDelay="700"
-                cursor= <i class="fas fa-plane"></i>
+                cursor= <i class="fas fa-paw"></i>
                 cursorClassName="plane"
               />
             </h5> <br />

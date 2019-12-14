@@ -313,7 +313,8 @@ export default function ContactSitter(props) {
                                 Booking is subject to availability and paying on Ourpet is required per Ourpet's Terms of Service.</p>
                             <br />
                             <br />
-                            <button disabled={formIsValid}
+                            <button 
+                                disabled={formIsValid}
                                 style={{
                                     backgroundColor: '#FFD256',
                                     border: 'none',

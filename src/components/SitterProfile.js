@@ -12,8 +12,6 @@ export default function SitterProfile(props) {
         })
     }
    
-
-
     return (
     <form onChange={e => handleChange(e)} >
         <TextField

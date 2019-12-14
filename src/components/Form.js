@@ -54,8 +54,8 @@ export default function Forms(props) {
       <Form.Row>
         <Form.Group as={Col} id="formGridCheckbox">
           <Form.Label>I'M LOOKING FOR MY LOVELY &nbsp; </Form.Label> <br />
-          <Form.Check inline type="checkbox" label="Dog" className="mr-3" />
-          <Form.Check inline type="checkbox" label="Cat" />
+          <Form.Check inline type="checkbox" label for="Dog" label="Dog" className="mr-3" />
+          <Form.Check inline type="checkbox" label for="Cat" label="Cat" />
         </Form.Group>
       </Form.Row>
 

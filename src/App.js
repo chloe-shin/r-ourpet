@@ -6,6 +6,8 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Main from './components/Main'
 import Footer from './components/Footer'
+
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {

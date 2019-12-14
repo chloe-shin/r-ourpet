@@ -19,7 +19,7 @@ font-family: 'Delius Unicase', cursive; */
 .sign:hover {
   color: #007b5e !important;
   text-decoration: none !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   cursor: pointer !important;
 
 }
@@ -356,7 +356,29 @@ section .section-title {
 
 /* Navbar */
 
-.fa-plane {
-  color: #FFD256 !important;
-  font-size: 30px !important;
+.fa-paw {
+  color: #FFD256;
+  font-size: 25px !important;
+}
+
+.fa-user-circle {
+  font-size: 16px !important;
+}
+
+.fa-gratipay {
+  font-size: 16px !important;
+}
+
+.fa-sign-out-alt {
+  font-size: 16px !important;
+}
+
+.MuiListItemText-primary {
+  font-family: montserrat !important;
+  font-size: 12px !important;
+}
+
+.card {
+  border-style: none !important;
+  border-bottom: 0.5px solid rgba(0,0,0, .2) !important;
 }
