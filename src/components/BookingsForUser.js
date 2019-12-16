@@ -30,6 +30,7 @@ export default function BookingsForUser() {
 
     <Container fluid={true}  style={{ backgroundColor: 'rgba(200,200,200,.1)', fontFamily: 'Open Sans' }}>
      <Row>
+     <h4 style={{marginLeft:"2rem", marginTop:"3rem"}}> <i class="fas fa-briefcase"></i>&nbsp; <strong> Check boardings </strong> </h4>
     <Col sm={1} md={1} lg={1}>
     </Col>
     <Col sm={10} md={10} lg={10} style={{backgroundColor:'white',  
