@@ -4,7 +4,7 @@ import { Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import { Link,useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { green, red, pink, orange, indigo } from '@material-ui/core/colors';
-
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import { withStyles, makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
@@ -91,9 +91,12 @@ export default function NavBar(props) {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto ul">
+
+                    {props.user && props.user.is_sitter ? 
+                        <></> :
                         <Link to="/besitter">
                             <div className="sign mr-5"> <i class="fab fa-gratipay"></i> &nbsp;Become a sitter </div>
-                        </Link>
+                        </Link> }
 
                         {props.user ?
                             <>
@@ -110,14 +113,18 @@ export default function NavBar(props) {
                                     open={Boolean(anchorEl)}
                                     onClose={handleClose}
                                 >
+                                {props.user && props.user.is_sitter 
+                                    ? 
+                                    <Link to="/bookings-for-sitter">
                                     <StyledMenuItem>
                                         <ListItemIcon>
-                                            <AccountCircleTwoToneIcon fontSize="small" />
+                                            <CardTravelTwoToneIcon fontSize="small" />
                                         </ListItemIcon>
-                                        <ListItemText primary="Account" />
+                                        <ListItemText primary="Boardings Management" />
                                     </StyledMenuItem>
-
-                                    <Link to="/bookings">
+                                    </Link>
+                                    :
+                                    <Link to="/bookings-for-user">
                                     <StyledMenuItem>
                                         <ListItemIcon>
                                             <CardTravelTwoToneIcon fontSize="small" />
@@ -125,18 +132,38 @@ export default function NavBar(props) {
                                         <ListItemText primary="Boardings" />
                                     </StyledMenuItem>
                                     </Link>
-
-
+                                }
+                                {props.user && props.user.is_sitter 
+                                    ? 
+                                    <StyledMenuItem>
+                                        <ListItemIcon>
+                                            <SettingsTwoToneIcon fontSize="small" />
+                                        </ListItemIcon>
+                                        <ListItemText primary="Settings" />
+                                    </StyledMenuItem>
+                                    :
+                                    <StyledMenuItem>
+                                        <ListItemIcon>
+                                            <FavoriteIcon fontSize="small" />
+                                        </ListItemIcon>
+                                        <ListItemText primary="Favorite Sitters" />
+                                    </StyledMenuItem>
+                                }
+                                {props.user && props.user.is_sitter 
+                                    ?
+                                    <></>
+                                    : 
                                     <StyledMenuItem>
                                         <ListItemIcon>
                                             <SettingsTwoToneIcon fontSize="small" />
                                         </ListItemIcon>
                                         <ListItemText primary="Setting" />
                                     </StyledMenuItem>
+                                }
+
                                 </StyledMenu>
 
                                 <div onClick={() => logout()} className="sign"> <i class="fas fa-sign-out-alt"></i> &nbsp; Sign out</div>
-
                             </> :
                             <>
                                 <Link to="/register">
@@ -144,35 +171,6 @@ export default function NavBar(props) {
                                         onClick={handleClick}>
                                         Sign Up
                                 </div>
-                                    <StyledMenu
-                                        id="customized-menu"
-                                        anchorEl={anchorEl}
-                                        keepMounted
-                                        open={Boolean(anchorEl)}
-                                        onClose={handleClose}
-                                    >
-                                        <StyledMenuItem>
-                                            <ListItemIcon>
-                                                <AddCircleOutlinedIcon fontSize="small" />
-                                            </ListItemIcon>
-                                            <ListItemText primary="New account" />
-                                         </StyledMenuItem>
-
-                                        <StyledMenuItem>
-                                            <ListItemIcon>
-                                                <FacebookIcon fontSize="small" />
-                                            </ListItemIcon>
-                                            <ListItemText primary="Facebook" />
-                                        </StyledMenuItem>
-
-                                        <StyledMenuItem>
-                                            <ListItemIcon>
-                                                <MailOutlinedIcon fontSize="small" />
-                                            </ListItemIcon>
-                                            <ListItemText primary="Gmail" />
-                                        </StyledMenuItem>
-                                    </StyledMenu>
-
                                 </Link>
                                 <Link to="/login"> <div className="sign"> Sign In </div> </Link>
                             </>

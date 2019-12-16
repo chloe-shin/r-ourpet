@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Col, Row, Container, Form, Card } from 'react-bootstrap';
 import Forms from './Form';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 //how to bring sitter information I created at Home.js & Form.js (which i used props from Home.js)?
 
 export default function SitterList(props) {
   const [sitters, setSitters] = useState([])
-
+  const params = useParams()
+  console.log(params['city'])
   useEffect(() => {
     fetchSitters()  // need to use filter later on
   }, [])
   
   // right now I get all sitters, but later i will use filter
   const fetchSitters = async () => {
-    const res = await fetch(process.env.REACT_APP_BURL + "/sitter-list")
+    const res = await fetch(process.env.REACT_APP_BURL + "/sitter-list/"+params['city'])
     // body : stringify(filter)  /// not totally correct yet
     if (res.ok) {
       const data = await res.json()
@@ -22,7 +23,6 @@ export default function SitterList(props) {
     }
   }
 
-  console.log('from sitter', sitters)
   return (
     <Container fluid={true}>
       <Row>

@@ -3,7 +3,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import LinkMat   from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -78,7 +78,7 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp() {
   const classes = useStyles();
   const [input, setInput] = useState({})
-  
+  const history = useHistory()
   //Read all value from Form and put in input.
   const handleChange = e => { 
     setInput({
@@ -97,7 +97,7 @@ export default function SignUp() {
     if (resp.ok) {
       const data = await resp.json()
       if (data.success===true){
-        alert('account created, please login')
+        history.push('/register-success')
       }
       else if (data.success===false){
         alert('Email taken')
@@ -107,7 +107,7 @@ export default function SignUp() {
 
 
 
-  console.log(input);
+
 
   return (
     <Container component="main" maxWidth="xs">

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Col, Row, Container } from 'react-bootstrap';
 import {Link } from 'react-router-dom';
+import BookingStatus from './BookingStatus';
 
 export default function BookingsForUser() {
   const [bookings, setBookings] = useState(null)
@@ -58,15 +59,8 @@ export default function BookingsForUser() {
                   <p> Price : {booking && booking.price} per night </p>
                 </Col>
                 <Col sm={2} md={2} lg={2}>
-                <button style={{border:'none', 
-                                backgroundColor:'orange', 
-                                color: 'white', 
-                                boxShadow:'2px 3px 3px rgba(0,0,0,0.3)',
-                                borderRadius:'5px',
-                                padding: '5px 20px'}}
-                > 
-                Pay now 
-                </button>
+                 <BookingStatus booking={booking} />
+               
               </Col>
               </Row>
             </Card.Body>

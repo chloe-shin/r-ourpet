@@ -6,7 +6,8 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Main from './components/Main'
 import Footer from './components/Footer'
-
+import Location from './components/Location';
+import RegisterSuccess from './components/RegisterSuccess';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -36,7 +37,6 @@ function App() {
     })
     if (res.ok) {
       const data = await res.json()
-      console.log('data', data)
       localStorage.setItem('token', token)
       setUser(data)
     } else {
@@ -44,6 +44,7 @@ function App() {
       setUser(null)
     }
   }
+
   // {window.location.pathname ="/besitter" ? 'bg': '' }
   return (
     <Router>
@@ -52,8 +53,11 @@ function App() {
         <Switch>
           <Route path="/login" exact render={() => <Login setUser={setUser} />} />
           <Route path="/register" exact component={Register} />
+          <Route path="/register-success" exact component={RegisterSuccess} />
+          <Route path="/location" exact component={Location}/>
           <Route path="/" render={() => <Main user={user} setUser={setUser} />} />
-        </Switch>
+
+          </Switch>
         <footer>
         <Footer />
         </footer>

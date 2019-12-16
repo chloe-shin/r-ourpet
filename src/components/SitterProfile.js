@@ -14,6 +14,10 @@ export default function SitterProfile(props) {
    
     return (
     <form onChange={e => handleChange(e)} >
+    <br/>
+    <br/>
+    <p> Please choose your profile photo </p>
+   
         <TextField
         label="profile photo"
         name="picture"
@@ -21,12 +25,18 @@ export default function SitterProfile(props) {
         id="mui-theme-provider-outlined-input"
         style={{ width: '20rem' }}
         />
+    <br/>
+    <br/>
+    <p> Please let people get to know about yourself! </p>
         <TextField
         label="Introduction"
         name="quote"
         variant="outlined"
         id="mui-theme-provider-outlined-input"
+        className="introduction"
         />
+    <br/>
+    <br/>
     </form>
     )
 }

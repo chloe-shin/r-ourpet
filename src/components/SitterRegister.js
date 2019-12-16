@@ -83,7 +83,6 @@ export default function SitterRegister() {
         }
     }
     const handleSubmit = async () => {
-        console.log("Sitter Info Fires", localStorage.getItem('token'))
         // e.preventDefault()
         const res = await fetch(process.env.REACT_APP_BURL + "/sitter-register", {
             method: "POST",
@@ -96,7 +95,7 @@ export default function SitterRegister() {
         if (res.ok) {
             const data = await res.json()
             if (data.success === true) {
-                history.push('/')
+                history.push('/sitter-register-successful')
             }
             else if (data.success === false) {
                 alert('Account is exsisting')
@@ -115,12 +114,13 @@ export default function SitterRegister() {
         setActiveStep(0);
     };
 
-    console.log(input);
+    // console.log(input);
     return (
         <Container fluid={true}>
             <h2 style={{textAlign:"center", margin:"2rem 4rem"}}>
                 Become a sitter
             </h2>
+            <br/>
 
              <form id="becomesitter" className={classes.form} noValidate onSubmit={(e)=>{e.preventDefault();return}}>
                 <ThemeProvider theme={theme}>
@@ -143,7 +143,7 @@ export default function SitterRegister() {
                     ) : (
                             <div>
                                 <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-                                <div>
+                                <div className="registerButton" style={{textAlign: "center"}}>
                                     <Button
                                         disabled={activeStep === 0}
                                         onClick={handleBack}
@@ -169,6 +169,11 @@ export default function SitterRegister() {
                     </div>
                 </ThemeProvider>               
             </form>   
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
         </Container>
     );
 }

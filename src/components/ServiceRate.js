@@ -10,13 +10,21 @@ export default function ServiceRate(props) {
         })
     }
     return(
-    <form onChange={e => handleChange(e)} >
+        
+        <form onChange={e => handleChange(e)} >
+        <br/>
+        <br/>
+        <p> How much do you want service rate to be per night? </p>
         <TextField
-        label="Price"
+        label="Price in VND per night (only number)"
         name="price"
         variant="outlined"
         id="mui-theme-provider-outlined-input"
-    />
+        style={{width: '20rem'}}
+        />
+        <br/>
+        <br/>
+        <br/>
     </form>
     )
 }

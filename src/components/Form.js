@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Row, Container, Form, Button } from 'react-bootstrap';
 import "react-awesome-button/dist/styles.css";
@@ -11,9 +11,11 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
+import Location from './Location';
 
 
 export default function Forms(props) {
+
   const history = useHistory()
   //I get all data from input 
   const handleChange = e => {
@@ -24,9 +26,9 @@ export default function Forms(props) {
   }
 
   const handleSubmit = async (e) => {
-    console.log("FORM FIRES")
+  
     e.preventDefault()
-    history.push('/sitter-list')
+    window.location.replace('/sitter-list/'+props.filter.city)
   }
 
   const theme = createMuiTheme({
@@ -61,7 +63,7 @@ export default function Forms(props) {
 
       <Form.Group controlId="formGridAddress1">
         <Form.Label>BOARING NEAR</Form.Label>
-        <Form.Control size="sm" placeholder="Zip code or address" />
+        <Location />
       </Form.Group>
 
       <ThemeProvider theme={theme}>

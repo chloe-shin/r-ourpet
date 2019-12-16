@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
+import Location from './Location';
 
 export default function BasicInfo(props) {
 
@@ -13,12 +14,13 @@ export default function BasicInfo(props) {
 
     return(
     <form onChange={e => handleChange(e)}>
-    <p style={{marginTop: '50px'}}> First, let's start with basic information. </p>
-        <TextField
-        label="City"
-        name="city"
-        variant="outlined"
-    />
+    <p style={{marginTop: '50px'}}> 
+    First, let's start with basic information.
+    Which city are you living in? 
+    </p>
+    <Location />
+    <br/>
+    <br/>
     </form>
     )
 }

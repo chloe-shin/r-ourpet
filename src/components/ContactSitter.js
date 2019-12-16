@@ -34,7 +34,7 @@ export default function ContactSitter(props) {
     }
 
     const handleChange = e => {
-        console.log('changing', e.target.name)
+     
 
         setBooking({
             ...booking,
@@ -74,7 +74,7 @@ export default function ContactSitter(props) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const body = { ...sitter, ...booking }
-        console.log(body, process.env.REACT_APP_BURL);
+    
         const res = await fetch((process.env.REACT_APP_BURL + "/sitter-detail/" + par['id'] + "/contact"), {
             method: 'POST',
             headers: {
@@ -85,7 +85,7 @@ export default function ContactSitter(props) {
         });
         if (res.ok) {
             const data = await res.json()
-            console.log('data', data)
+
             if (data.success == true) {
                 alert('successfully sent!')
                 history.push('/')
@@ -125,7 +125,7 @@ export default function ContactSitter(props) {
 
     const classes = useStyles();
     const formIsValid = !booking.startDate || !booking.finishDate || !booking.message
-    console.log('sitter', sitter, 'booking', booking)
+
 
     return (
         <Container component="main" maxWidth="xs">

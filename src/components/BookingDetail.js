@@ -8,7 +8,7 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
-
+import BookingStatus from './BookingStatus';
 
 //Mui Library//
 const styles = theme => ({
@@ -61,14 +61,12 @@ const history = useHistory();
     getBookingDetail()
   }, [])
 
-  console.log({par})
 
 const getBookingDetail = async () => {
     const res = await fetch(process.env.REACT_APP_BURL + "/bookings/" + par.id + "/detail")
     if (res.ok) {
       const data = await res.json()
       setBooking(data.booking)
-      console.log('data for booking detail ', data)
     }   
   }
 
@@ -83,7 +81,7 @@ const handleDelete = async () => {
         const data = await res.json()
         setBooking(data.booking)
         if (data.success == true){
-            history.push('/bookings')
+            history.push('/bookings-for-user')
         }
     } 
   }
@@ -106,11 +104,16 @@ setOpen(false);
             <p> Drop-off: {booking && booking.finish} </p>
             <p> Message: <br/> {booking && booking.message} </p>
             <h5> Pet information </h5>
-            <div> Booking status: {booking && booking.is_confirmed ? <p> confirmed </p> : <p> not confirmed </p> } </div>
+            <div> Status: <BookingStatus booking={booking} /> </div>
 
-            <Link to="/payment"> <button> Pay it now </button> </Link> <br/>
-           *Payment will not be processed until the sitter confirmed the booking. <br/>            
-            
+            {booking && booking.is_confirmed ?
+            <>
+            <Link to={'/bookings/'+(booking && booking.id) +'/checkout'}> 
+            <button> Pay now </button>
+            </Link> <br/> 
+            </> 
+            : <></>
+            }
             <button  onClick={handleClickOpen}>
              Cancel booking
             </button>

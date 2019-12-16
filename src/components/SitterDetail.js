@@ -6,7 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 export default function SitterDetail(props) {
     const par = useParams()
     const [sitter, setSitter] = useState(null)
-    console.log('param', par['id'])
+
     useEffect(() => {
         fetchDetail(par['id'])  // need to use filter later on
     }, [])
