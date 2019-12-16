@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom';
 
 function BeSitter() {
     return (
-        <div className="besitter" style={{ color: "white" }}>
+        <div className="besitter" style={{ color: "white", fontFamily:"Open Sans" }}>
         <div>
-        <h1 className="besittertext"> GET PAID DO PLAY WITH PETS </h1>
+        <h1 className="besittertext"><strong> GET PAID TO PLAY WITH PETS </strong></h1>
         <h5 >How it works?</h5> <br/>
-        1. Create your profile
-        We guide you through building a profile that showcases information pet parents care about.<br/><br/>
+        1. Create your profile.
+        We guide you through building a profile.<br/><br/>
         2. Accept requests
-        Tell us the types of dogs you want to care for and the dates that work for you. You make your own schedule.<br/><br/>
+        Check the requests from customer and confirm the booking.<br/><br/>
         3. Get paid
         Payments are ready for withdrawal two days after you have completed a service.<br/><br/>
-        <Link to="/sitter-register"><button className="start"> Get Started </button></Link>
+        <Link to="/sitter-register"><button className="start"> <strong>Get Started</strong> </button></Link>
         </div>
         
         

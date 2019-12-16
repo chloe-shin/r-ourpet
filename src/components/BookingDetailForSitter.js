@@ -8,7 +8,7 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
-import BookingStatus from './BookingStatus';
+import BookingStatusDetail from './BookingStatusDetail';
 
 
 //Mui Library//
@@ -153,7 +153,7 @@ export default function BookingDetailForSitter() {
                 <p> Pet information </p>
           
                 <p> Booking status:</p> 
-                <BookingStatus booking={booking} />
+                <BookingStatusDetail booking={booking} />
 
                 <button onClick={handleClickOpened}> Confirm booking 
                 </button>

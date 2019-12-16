@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Link } from 'react-router-dom';
 import { Card, Col, Row, Container } from 'react-bootstrap';
-
+import BookingStatus from './BookingStatus';
 
 
 
@@ -32,7 +32,7 @@ export default function BookingsForSitter() {
                                           alignItems:"center",
                                           margin:"2rem 0rem",
                                           backgroundColor: "light grey"}}>
-    
+        
           {bookings && bookings.map((booking) => {
     
             return (
@@ -61,7 +61,7 @@ export default function BookingsForSitter() {
                     
                     </Col>
                     <Col sm={2} md={2} lg={2}>
-                   
+                    <BookingStatus booking={booking} />
                   </Col>
                   </Row>
                 </Card.Body>

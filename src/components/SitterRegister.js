@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { green, red, pink, orange } from '@material-ui/core/colors';
+import { green, red, pink, indigo, orange } from '@material-ui/core/colors';
 import { Link, useHistory } from "react-router-dom";
 import { Col, Row, Form, Container } from 'react-bootstrap';
 
@@ -116,64 +116,78 @@ export default function SitterRegister() {
 
     // console.log(input);
     return (
-        <Container fluid={true}>
-            <h2 style={{textAlign:"center", margin:"2rem 4rem"}}>
-                Become a sitter
-            </h2>
-            <br/>
+        <Container fluid={true} 
+        style={{backgroundImage: "url(/img/df-banner-dog.jpg)",
+                backgroundSize: "cover" }}>
+        <Row>
+        <Col sm={6} md={6} lg={6} style={{textAlign:"center", margin:"5rem 0rem"}}>
+        <h1 style={{color:'white'}}><strong>IT'S EASY.</strong> </h1>
+        <br/>
+         
+        <h5 style={{textAlign:"center", marginBottom:'4rem', color:'white'}}> 
+        Just let us know about yourself a little bit.
+        </h5>
 
-             <form id="becomesitter" className={classes.form} noValidate onSubmit={(e)=>{e.preventDefault();return}}>
-                <ThemeProvider theme={theme}>
-                <div className={classes.root}>
-                    <Stepper activeStep={activeStep} alternativeLabel >
-                        {steps.map(label => (
-                            <Step key={label}>
-                                <StepLabel>{label}</StepLabel>
-                            </Step>
-                        ))}
-                    </Stepper>
-                </div>
-                 
+         <form id="becomesitter" className={classes.form} noValidate onSubmit={(e)=>{e.preventDefault();return}}>
+            <ThemeProvider theme={theme}>
+            <div className={classes.root}>
+                <Stepper activeStep={activeStep} alternativeLabel >
+                    {steps.map(label => (
+                        <Step key={label}>
+                            <StepLabel>{label}</StepLabel>
+                        </Step>
+                    ))}
+                </Stepper>
+            </div>
+             
+                <div>
+                {activeStep === steps.length ? (
                     <div>
-                    {activeStep === steps.length ? (
+                        <Typography className={classes.instructions}>All steps completed</Typography>
+                        <Button onClick={handleReset}>Reset</Button>
+                    </div>
+                ) : (
                         <div>
-                            <Typography className={classes.instructions}>All steps completed</Typography>
-                            <Button onClick={handleReset}>Reset</Button>
-                        </div>
-                    ) : (
-                            <div>
-                                <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-                                <div className="registerButton" style={{textAlign: "center"}}>
-                                    <Button
-                                        disabled={activeStep === 0}
-                                        onClick={handleBack}
-                                        className={classes.backButton}
-                                    >
-                                        Back
-                                  </Button>
-                                        {activeStep === steps.length -1 
-                                            ? 
-                                            <Button variant="contained" color="primary" onClick={()=>handleSubmit()}>
-                                                Finish
-                                            </Button>
-
-                                            : 
-                                            <Button variant="contained" color="primary" onClick={handleNext}>
-                                            Next
+                            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+                            <div className="registerButton" style={{textAlign: "center"}}>
+                                <Button
+                                    disabled={activeStep === 0}
+                                    onClick={handleBack}
+                                    className={classes.backButton}
+                                >
+                                    Back
+                              </Button>
+                                    {activeStep === steps.length -1 
+                                        ? 
+                                        <Button variant="contained" color="primary" onClick={()=>handleSubmit()}>
+                                            Finish
                                         </Button>
 
-                                        }
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </ThemeProvider>               
-            </form>   
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+                                        : 
+                                        <Button variant="contained" color="primary" onClick={handleNext}>
+                                        Next
+                                    </Button>
 
+                                    }
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </ThemeProvider>               
+        </form>  
+        
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        </Col>
+
+         <Col sm={6} md={6} lg={6} style={{textAlign:"center", margin:"5rem 0rem"}}>
+           
+            </Col>
+            </Row>
         </Container>
     );
 }

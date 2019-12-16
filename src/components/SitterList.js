@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Col, Row, Container, Form, Card } from 'react-bootstrap';
 import Forms from './Form';
 import { Link, useParams } from 'react-router-dom';
+import NumberFormat from 'react-number-format';
 
 //how to bring sitter information I created at Home.js & Form.js (which i used props from Home.js)?
 
@@ -39,7 +40,13 @@ export default function SitterList(props) {
                 <Col sm="9" md="9" lg="9">
                  <Link to={"/sitter-detail/"+ s.sitter_id}> <h6 style={{ color: 'orange' }}> {s.name} </h6> </Link>
                   <p> {s.quote}</p>
-                  <p>from {s.price} vnd per night</p>
+                  <p>from <NumberFormat
+                       value={s.price} 
+                      displayType={'text'} 
+                      thousandSeparator={true} 
+                      prefix={'₫'} />
+                  &nbsp; per night  
+                </p>
                 </Col>
               </Row>
             )

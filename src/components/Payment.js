@@ -2,6 +2,7 @@ import React, {useState, useEffect, Component} from 'react'
 import StripeCheckout from 'react-stripe-checkout';
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import { Link, useParams, useHistory} from 'react-router-dom';
+import NumberFormated from './NumberFormated'
 
 export default function Payment() {
 
@@ -46,11 +47,10 @@ export default function Payment() {
     // XHR, fetch, or a GraphQL mutation is typical.
   
   return (
-    <>
-    <p>Total amount for booking is {booking.total_price} </p>
+   
    
     <StripeCheckout
-    amount={(booking.total_price)*100}
+    amount={(booking.total_price)*0.0043}
     billingAddress
     description= {'Boarding for ' + (booking.pet_name)}
     image={booking.sitter_pic}
@@ -59,10 +59,11 @@ export default function Payment() {
     stripeKey="pk_test_XRpHxnwEXUNB50TsbfoO0Kq400iOIXSe10"
     token={onToken}
     zipCode
-    label="pay with card"
-    panelLabel="total {{amount}}"
+    label="Pay Now"
+    panelLabel= "Pay"
+    style={{width:'100%'}}
     /> 
-    </>
+
 
     )
 

@@ -3,14 +3,16 @@ import {Link} from 'react-router-dom';
 
 function Successful() {
     return (
-        <div style={{textAlign: 'center', marginTop: '5rem', marginBottom:'5rem'}}>
-        <img width="100" height="100" src="/img/checked.png" />
+        <div style={{textAlign: 'center', marginTop: '5rem', marginBottom:'5rem', fontFamily:'Open Sans'}}>
+        <img width="100" height="100" src="/img/confirm.png" />
         <br/>
         <br/>
         <br/>
 
             <h3> Thank you!
-            <br/> Successfully registered as Sitter</h3>
+            <br/> 
+            <br/>
+            Successfully registered as Sitter <i class="fas fa-paw"></i></h3>
             <br/>
             <br/>   
            <Link to='/'> <button style={{backgroundColor: '#FFD256', 

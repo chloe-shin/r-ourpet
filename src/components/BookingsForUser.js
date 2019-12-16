@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { Card, Col, Row, Container } from 'react-bootstrap';
-import {Link } from 'react-router-dom';
+import { Card, Col, Row, Container, Badge, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import BookingStatus from './BookingStatus';
+import moment from 'moment';
+import NumberFormated from './NumberFormated'
 
 export default function BookingsForUser() {
   const [bookings, setBookings] = useState(null)
@@ -25,50 +27,54 @@ export default function BookingsForUser() {
     }
   }
   return (
-    <div className="bookings" style={{display:"flex", 
-                                      flexDirection:"column", 
-                                      alignItems:"center",
-                                      margin:"2rem 0rem",
-                                      backgroundColor: "light grey"}}>
 
+    <Container fluid={true}  style={{ backgroundColor: 'rgba(200,200,200,.1)', fontFamily: 'Open Sans' }}>
+     <Row>
+    <Col sm={1} md={1} lg={1}>
+    </Col>
+    <Col sm={10} md={10} lg={10} style={{backgroundColor:'white',  
+                                         border:'1px solid rgba(0,0,0,0.1)', 
+                                         borderRadius:'5px',
+                                         padding: '25px',
+                                         margin:'25px'
+                                        }}>
       {bookings && bookings.map((booking) => {
-        console.log({booking})
+        console.log({ booking })
         return (
-
-          <Card style= {{width: "80%"}}>
-            <Card.Body>
-              <Row>
+           
+              <Row >
                 <Col sm={4} md={4} lg={4}>
-                  <div class="Bookingsitter" style={{margin:"2rem 0rem", display:"flex", alignItems:"flex-end" }}>
-                  <img 
-                  width="80" 
-                  height="80"  
-                  src={booking && booking.sitter_pic}
-                  style={{borderRadius:"50%", margin:'10px'}} 
-                  /> <br/>
-                  <p> {booking && booking.sitter_name} <br/>
-                      {booking && booking.created_at} </p>
+                  <div class="Bookingsitter" style={{ margin: "2rem 0rem", display: "flex", alignItems: "flex-end" }}>
+                    <img
+                      width="80"
+                      height="80"
+                      src={booking && booking.sitter_pic}
+                      style={{ borderRadius: "50%", margin: '10px' }}
+                    /> <br />
+                    <p> {booking && booking.sitter_name} <br />
+                     You sent request {moment(booking && booking.created_at).fromNow()} </p>
                   </div>
                 </Col>
                 <Col sm={6} md={6} lg={6}>
-                  <Link to ={`/bookings/${booking.id}/detail`}>
-                  <p> <i class="fas fa-paw"></i> <strong>Boarding for {booking && booking.pet_name}</strong>  </p>
+                  <Link to={`/bookings/${booking.id}/detail`}>
+                    <p> <i class="fas fa-paw"></i> &nbsp; <strong>Boarding for {booking && booking.pet_name}</strong>  </p>
                   </Link>
-                  <p> Drop-off : {booking && booking.start} </p>
-                  <p> Pick-up : {booking && booking.finish} </p>
-                  <p> Price : {booking && booking.price} per night </p>
+                  <p> Drop-off : {moment(booking && booking.start).format("dddd, Do MMM YYYY")} </p>
+                  <p> Pick-up : {moment(booking && booking.finish).format("dddd, Do MMM YYYY")} </p>
+                  <p> Price : <NumberFormated booking={booking}/> per night </p>
                 </Col>
-                <Col sm={2} md={2} lg={2}>
-                 <BookingStatus booking={booking} />
-               
-              </Col>
+                <Col sm={2} md={2} lg={2} style={{margin:'2rem 0rem'}}>
+                  <BookingStatus booking={booking} />
+                </Col>
               </Row>
-            </Card.Body>
-          </Card>
-
+              
+            )
+          })}
+          
+          </Col>
+          <Col sm={1} md={1} lg={1}>
+          </Col>
+          </Row>
+    </Container>
         )
-      })}
-
-    </div>
-  )
-}
+      }
