@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {Link } from 'react-router-dom';
 import { Card, Col, Row, Container } from 'react-bootstrap';
 import BookingStatus from './BookingStatus';
+import moment from 'moment';
 
 
 
@@ -49,15 +50,15 @@ export default function BookingsForSitter() {
                       style={{borderRadius:"50%", margin:'10px'}} 
                       /> <br/>
                       <p> From {booking && booking.user_name} <br/>
-                          {booking && booking.created_at} </p>
+                      {moment(booking && booking.created_at).fromNow()} </p>
                       </div>
                     </Col>
                     <Col sm={6} md={6} lg={6}>
                       <Link to ={`/bookings-for-sitter/${booking.id}/detail`}>
                       <p> <i class="fas fa-paw"></i> <strong>Boarding for {booking && booking.pet_name}</strong>  </p>
                       </Link>
-                      <p> Drop-off : {booking && booking.start} </p>
-                      <p> Pick-up : {booking && booking.finish} </p>
+                      <p> Drop-off : {moment(booking && booking.start).format("dddd, Do MMM YYYY")} </p>
+                      <p> Pick-up : {moment(booking && booking.finish).format("dddd, Do MMM YYYY")} </p>
                     
                     </Col>
                     <Col sm={2} md={2} lg={2}>

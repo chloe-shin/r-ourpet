@@ -173,13 +173,14 @@ export default function BookingDetailForSitter() {
             </div>
             <hr/>
             <h6><i class="fas fa-paw"></i> Pet Information: </h6>
+            <br/>
             <div>
-            <p> &nbsp;&nbsp; Pet name: <strong>{booking && booking.pet_name}</strong> </p><br/>
-            <p> &nbsp;&nbsp; Pet type:<strong>{booking && booking.pet_type}</strong> </p> br/>
-            <p> &nbsp;&nbsp; Pet size: <strong>{booking && booking.pet_size}</strong> </p><br/>
-            <p> &nbsp;&nbsp; Pet breed:<strong>{booking && booking.pet_breed}</strong> </p><br/>
-            <p> &nbsp;&nbsp; Pet age:<strong>{booking && booking.pet_age}</strong> </p><br/>
-            <p> &nbsp;&nbsp; Pet sex: <strong>{booking && booking.pet_sex}</strong> </p>
+            <p> &nbsp;&nbsp; Name: <strong>{booking && booking.pet_name}</strong> </p><br/>
+            <p> &nbsp;&nbsp; Type:<strong>{booking && booking.pet_type}</strong> </p> <br/>
+            <p> &nbsp;&nbsp; Size: <strong>{booking && booking.pet_size}</strong> </p><br/>
+            <p> &nbsp;&nbsp; Breed:<strong>{booking && booking.pet_breed}</strong> </p><br/>
+            <p> &nbsp;&nbsp; Age:<strong>{booking && booking.pet_age}</strong> </p><br/>
+            <p> &nbsp;&nbsp; Sex: <strong>{booking && booking.pet_sex}</strong> </p>
             </div>
             <hr/>
 
