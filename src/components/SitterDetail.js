@@ -28,7 +28,7 @@ export default function SitterDetail(props) {
                     <img className="sitterimage" src={sitter && sitter.image} />
                 </Col>
 
-                <Col sm={8} md={8} lg={8} className="sitterdetailcol">
+                <Col sm={7} md={7} lg={7} className="sitterdetailcol">
                     <h1> {sitter && sitter.name} </h1> <br/>
                     <p> <i class="fas fa-map-marker-alt"></i> &nbsp; {sitter && sitter.city} </p>
                     <p> <i class="fas fa-quote-left"></i> &nbsp;{sitter && sitter.quote} </p>
@@ -38,7 +38,7 @@ export default function SitterDetail(props) {
                     </Link>
                     <br/>
                     <br/>
-                    <div className="service" sm={4} md={4} lg={4}>
+                    <div className="service" >
                     <h4> Pet Boarding Fee </h4>
                      Dog Boarding  <br/>
                     <NumberFormat value={sitter && sitter.price} 
@@ -50,13 +50,15 @@ export default function SitterDetail(props) {
                     *Please contact to sitter to check availability.
                     </div> 
                 </Col>
+                <Col sm={1} md={1} lg={1}>
+                </Col>
             </Row>
             <Row className="sitterdetailrow mt-5 pt-2">
                 <Col sm={4} md={4} lg={4}>
                 
                 </Col> 
                 <Col sm={8} md={8} lg={8}>
-                    
+
                 
                 </Col>
 
