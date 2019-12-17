@@ -172,10 +172,10 @@ export default function BookingDetailForSitter() {
             {booking && booking.message} 
             </div>
             <hr/>
-            <h6>Pet Information: </h6>
-            <div style={{display:'flex', alignItems:'center'}}>
+            <h6><i class="fas fa-paw"></i> Pet Information: </h6>
+            <div>
             <p> &nbsp;&nbsp; Pet name: <strong>{booking && booking.pet_name}</strong> </p><br/>
-            <p> &nbsp;&nbsp; Pet type:<strong>{booking && booking.pet_type}</strong> </p><br/>
+            <p> &nbsp;&nbsp; Pet type:<strong>{booking && booking.pet_type}</strong> </p> br/>
             <p> &nbsp;&nbsp; Pet size: <strong>{booking && booking.pet_size}</strong> </p><br/>
             <p> &nbsp;&nbsp; Pet breed:<strong>{booking && booking.pet_breed}</strong> </p><br/>
             <p> &nbsp;&nbsp; Pet age:<strong>{booking && booking.pet_age}</strong> </p><br/>
