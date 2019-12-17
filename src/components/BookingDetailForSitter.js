@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import {Container, Row, Col, Button} from 'react-bootstrap';
+
 import { Link, useParams, useHistory} from 'react-router-dom';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,6 +11,10 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import BookingStatusDetail from './BookingStatusDetail';
+import moment from 'moment';
+import NumberFormat from 'react-number-format';
+import NumberFormated from './NumberFormated';
+import Payment from './Payment';
 
 
 //Mui Library//
@@ -145,41 +151,66 @@ export default function BookingDetailForSitter() {
     //end of Mui Library 
     
         return (
-            <div>
-                <h1>Booking request from {booking && booking.user_name} </h1> 
-                <p> Pick-up: {booking && booking.start} </p>
-                <p> Drop-off: {booking && booking.finish} </p>
-                <p> Message: <br/> {booking && booking.message} </p>
-                <p> Pet information </p>
-          
+          <Container fluid={true}
+        style={{backgroundColor: 'rgba(200,200,200,.1)', fontFamily:'Open Sans'}}>
+        <Row>
+        <Col sm={1} md={1} lg={1}></Col>
+        <Col sm={7} md={7} lg={7} style={{margin: '4rem 0rem'}}>
+        <div style={{ 
+                     border:'1px solid rgba(0,0,0,0.1)', 
+                     borderRadius:'5px',
+                     padding: '25px',
+                     backgroundColor:'white'}}>
+            <h3> <BookingStatusDetail booking={booking} /> </h3> 
+            <hr/>
+            <p> Drop-off : { moment (booking && booking.start).format("dddd, Do MMM YYYY")} </p>
+            <p> Pick-up : { moment (booking && booking.finish).format("dddd, Do MMM YYYY")} </p>
+            <hr/>
+           
+            <p> Message you got:</p>
+            <div class="speech-bubble">
+            {booking && booking.message} 
+            </div>
+            <hr/>
+            <h6>Pet Information: </h6>
+            <div style={{display:'flex', alignItems:'center'}}>
+            <p> &nbsp;&nbsp; Pet name: <strong>{booking && booking.pet_name}</strong> </p><br/>
+            <p> &nbsp;&nbsp; Pet type:<strong>{booking && booking.pet_type}</strong> </p><br/>
+            <p> &nbsp;&nbsp; Pet size: <strong>{booking && booking.pet_size}</strong> </p><br/>
+            <p> &nbsp;&nbsp; Pet breed:<strong>{booking && booking.pet_breed}</strong> </p><br/>
+            <p> &nbsp;&nbsp; Pet age:<strong>{booking && booking.pet_age}</strong> </p><br/>
+            <p> &nbsp;&nbsp; Pet sex: <strong>{booking && booking.pet_sex}</strong> </p>
+            </div>
+            <hr/>
+
                 <p> Booking status:</p> 
                 <BookingStatusDetail booking={booking} />
 
-                <button onClick={handleClickOpened}> Confirm booking 
-                </button>
+                <Button className="mr-2" variant="success" onClick={handleClickOpened}> Confirm booking 
+                </Button>
                 <Dialog onClose={handleClosed} aria-labelledby="customized-dialog-title" open={opened}>
                 <DialogTitle id="customized-dialog-title" onClose={handleClosed}>
                 Confirm Booking
-              </DialogTitle>pa
+              </DialogTitle>
                 <DialogContent dividers>
                   <Typography gutterBottom>
                     Do you want to confirm this booking request?
                   </Typography>
                 </DialogContent>
                 <DialogActions>
-                  <button autoFocus onClick={handleClosed} >
+                  <Button variant="outline-danger" autoFocus onClick={handleClosed} >
                     cancel
-                  </button>
-                  <button autoFocus onClick={(e)=> handleConfirm(e)} >
+                  </Button>
+                  <Button variant="outline-success" autoFocus onClick={(e)=> handleConfirm(e)} >
                     Yes I confirm
-                </button>
+                </Button>
                 </DialogActions>
               </Dialog>
 
                               
-                <button  onClick={handleClickOpen}>
+                <Button  variant="danger"  onClick={handleClickOpen}>
                  Reject booking
-                </button>
+                </Button>
                 <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
                 <DialogTitle id="customized-dialog-title" onClose={handleClose}>
                   Reject Booking
@@ -190,16 +221,20 @@ export default function BookingDetailForSitter() {
                   </Typography>
                 </DialogContent>
                 <DialogActions>
-                  <button autoFocus onClick={handleClose} >
+                  <Button variant="outline-secondary"  autoFocus onClick={handleClose} >
                     No I don't want to
-                  </button>
-                  <button autoFocus onClick={(e)=> handleReject(e)} >
+                  </Button>
+                  <Button variant="outline-danger" autoFocus onClick={(e)=> handleReject(e)} >
                     Yes I will reject                 
-                    </button>
+                    </Button>
                 </DialogActions>
               </Dialog>
             </div>
-        )
+            </Col>
+            <Col sm={1} md={1} lg={1}></Col>
+            </Row>
+        </Container>
+            ) 
     }
     
     

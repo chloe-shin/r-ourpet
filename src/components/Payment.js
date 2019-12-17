@@ -9,7 +9,7 @@ export default function Payment() {
   useEffect(() => {
     fetchBooking()  
   }, [])
-
+  const history = useHistory()
   const [booking, setBooking] = useState({})
   const par = useParams()
 
@@ -34,7 +34,8 @@ export default function Payment() {
   if (res.ok){
     const data = await res.json()
     if(data.success==true){
-      alert('payment is successful')
+     
+      history.push('/bookings/checkout/successful')
     }
   }
   // console.log('props', props)
@@ -53,7 +54,7 @@ export default function Payment() {
     amount={(booking.total_price)*0.0043}
     billingAddress
     description= {'Boarding for ' + (booking.pet_name)}
-    image={booking.sitter_pic}
+    image="/img/bg.png"
     locale="auto"
     name="Ourpet"
     stripeKey="pk_test_XRpHxnwEXUNB50TsbfoO0Kq400iOIXSe10"

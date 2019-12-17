@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 export default function RegisterSuccess() {
     return (
         <div style={{textAlign: 'center', marginTop: '5rem', marginBottom:'5rem'}}>
-        <img width="100" height="100" src="/img/checked.png" />
+        <img width="100" height="100" src="/img/confirm.png" />
         <br/>
         <br/>
         <br/>

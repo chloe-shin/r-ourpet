@@ -135,15 +135,15 @@ setOpen(false);
             <hr/>
            
             <Button  variant="danger" onClick={handleClickOpen} >
-             Cancel booking
+             Delete booking
             </Button>
             <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
             <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-              Cancel Booking
+              Delete Booking
             </DialogTitle>
             <DialogContent dividers>
               <Typography gutterBottom>
-                Are you sure you want to cancel booking?
+                Are you sure you want to delete booking?
               </Typography>
             </DialogContent>
             <DialogActions>
@@ -151,7 +151,7 @@ setOpen(false);
                 No I don't want to
               </Button>
               <Button variant="outline-danger" autoFocus onClick={(e)=> handleDelete(e)} >
-                Yes I will cancel booking
+                Yes I will delete booking
             </Button>
             </DialogActions>
           </Dialog>
