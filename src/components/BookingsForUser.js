@@ -6,12 +6,14 @@ import BookingStatus from './BookingStatus';
 import moment from 'moment';
 import NumberFormated from './NumberFormated'
 
+
 export default function BookingsForUser() {
   const [bookings, setBookings] = useState(null)
 
   useEffect(() => {
     getBookings()
   }, [])
+
 
   const getBookings = async () => {
     const res = await fetch(process.env.REACT_APP_BURL + "/bookings", {
@@ -28,21 +30,46 @@ export default function BookingsForUser() {
   }
   return (
 
-    <Container fluid={true}  style={{ backgroundColor: 'rgba(200,200,200,.1)', fontFamily: 'Open Sans' }}>
-     <Row>
-     <h4 style={{marginLeft:"2rem", marginTop:"3rem"}}> <i class="fas fa-briefcase"></i>&nbsp; <strong> Check boardings </strong> </h4>
+    <Container fluid={true}  style={{ backgroundColor: 'rgba(200,200,200,.1)', fontFamily: 'Open Sans', paddingBottom:"3rem" }}>
+    <Row>   
     <Col sm={1} md={1} lg={1}>
     </Col>
-    <Col sm={10} md={10} lg={10} style={{backgroundColor:'white',  
-                                         border:'1px solid rgba(0,0,0,0.1)', 
-                                         borderRadius:'5px',
-                                         padding: '25px',
-                                         margin:'25px'
-                                        }}>
+     <Col sm={10} md={10} lg={10}>
+      <h4 style={{ marginLeft:"2rem", marginTop:"3rem"}}> 
+          <i class="fas fa-briefcase"></i>&nbsp; 
+          <strong> Check boardings </strong> 
+      </h4>
+      </Col>
+    </Row>
+    <Row style={{ marginTop:"2rem"}}>
+        <Col sm={1} md={1} lg={1}>
+        </Col>
+        <Col sm={10} md={10} lg={10}>
+ 
+ 
+        {bookings && bookings.length === 0 ?     
+          <Card style= {{margin:"3rem"}}>
+            <Card.Body>
+              <Row>
+                <Col sm={4} md={4} lg={4}>
+            </Col>
+            <Col sm={6} md={6} lg={6}>
+            
+            There is no boardings yet.
+              
+            </Col>
+            <Col sm={2} md={2} lg={2}>
+            </Col>
+            </Row>
+          </Card.Body>
+        </Card> : <></>
+        }
+
       {bookings && bookings.map((booking) => {
         console.log({ booking })
         return (
-           
+            <Card style= {{margin:"1rem"}}>
+            <Card.Body>
               <Row >
                 <Col sm={4} md={4} lg={4}>
                   <div class="Bookingsitter" style={{ margin: "2rem 0rem", display: "flex", alignItems: "flex-end" }}>
@@ -68,7 +95,8 @@ export default function BookingsForUser() {
                   <BookingStatus booking={booking} />
                 </Col>
               </Row>
-              
+              </Card.Body>
+              </Card>
             )
           })}
           

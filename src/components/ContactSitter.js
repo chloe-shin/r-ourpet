@@ -34,15 +34,13 @@ export default function ContactSitter(props) {
     }
 
     const handleChange = e => {
-     
-
         setBooking({
             ...booking,
             [e.target.name]: e.target.value
         })
     }
 
-    const   handlePhoto = e => {
+    const handlePhoto = e => {
         setBooking({
             ...booking,
             is_photo: !booking.is_photo
@@ -128,7 +126,7 @@ export default function ContactSitter(props) {
 
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" className="contactSitter">
             <Row>
                 <Col sm={8} md={8} lg={8}>
 

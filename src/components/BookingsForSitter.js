@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {Link } from 'react-router-dom';
 import { Card, Col, Row, Container } from 'react-bootstrap';
-import BookingStatus from './BookingStatus';
+import BookingStatusSitter from './BookingStatusSitter';
 import moment from 'moment';
-
-
 
 export default function BookingsForSitter() {
     const [bookings, setBookings] = useState(null)
@@ -27,25 +25,56 @@ export default function BookingsForSitter() {
         }
       }  
 
+
       return (
-        <div className="bookings" style={{display:"flex", 
-                                          flexDirection:"column", 
-                                          alignItems:"center",
-                                          margin:"2rem 0rem",
-                                          backgroundColor: "light grey"}}>
         
-          {bookings && bookings.map((booking) => {
-    
-            return (
-    
-              <Card style= {{width: "80%"}}>
+        <Container fluid={true}  style={{ backgroundColor: 'rgba(200,200,200,.1)', 
+                                          fontFamily: 'Open Sans',
+                                          paddingBottom:'3rem'  }}>
+        <Row>   
+        <Col sm={1} md={1} lg={1}>
+        </Col>
+         <Col sm={10} md={10} lg={10}>
+          <h4 style={{ marginLeft:"2rem", marginTop:"3rem"}}> 
+              <i class="fas fa-briefcase"></i>&nbsp; 
+              <strong> Manage boardings </strong> 
+          </h4>
+          </Col>
+        </Row>
+        <Row style={{ marginTop:"2rem"}}>
+            <Col sm={1} md={1} lg={1}>
+            </Col>
+            <Col sm={10} md={10} lg={10}>
+          
+            {bookings && bookings.length === 0 ?     
+              <Card style= {{margin:"3rem"}}>
                 <Card.Body>
                   <Row>
                     <Col sm={4} md={4} lg={4}>
-                      <div class="Bookingsitter" style={{margin:"2rem 0rem", display:"flex", alignItems:"flex-end" }}>
+               </Col>
+               <Col sm={6} md={6} lg={6}>
+                
+               There is no boardings yet.
+                 
+               </Col>
+               <Col sm={2} md={2} lg={2}>
+               </Col>
+               </Row>
+             </Card.Body>
+            </Card> : <></>
+            }
+
+
+             {bookings && bookings.map((booking) => {
+              return (
+              <Card style= {{margin:"1rem"}}>
+                <Card.Body>
+                  <Row>
+                    <Col sm={4} md={4} lg={4}>
+                      <div class="Bookingsitter" style={{textAlign:"center" }}>
                       <img 
-                      width="80" 
-                      height="80"  
+                      width="50" 
+                      height="50"  
                       src='/img/user.png'
                       style={{borderRadius:"50%", margin:'10px'}} 
                       /> <br/>
@@ -59,19 +88,25 @@ export default function BookingsForSitter() {
                       </Link>
                       <p> Drop-off : {moment(booking && booking.start).format("dddd, Do MMM YYYY")} </p>
                       <p> Pick-up : {moment(booking && booking.finish).format("dddd, Do MMM YYYY")} </p>
-                    
                     </Col>
                     <Col sm={2} md={2} lg={2}>
-                    <BookingStatus booking={booking} />
+                    <BookingStatusSitter booking={booking} />
+                    
                   </Col>
                   </Row>
                 </Card.Body>
               </Card>
-    
             )
           })}
-    
-        </div>
+
+
+
+          </Col>
+
+          <Col sm={1} md={1} lg={1}>
+          </Col>
+        </Row>
+      </Container>
       )
     }
     

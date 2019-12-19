@@ -21,6 +21,7 @@ export default function ServiceRate(props) {
         variant="outlined"
         id="mui-theme-provider-outlined-input"
         style={{width: '20rem'}}
+        type="number"
         />
         <br/>
         <br/>

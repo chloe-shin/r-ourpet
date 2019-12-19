@@ -12,8 +12,14 @@ html {
   font-size: 14px !important;
 }
 
+.contactSitter {
+  font-family: "Open Sans", "Helvetica", "Arial", sans-serif !important;
+  font-size: 14px !important;
+}
+
 a {
   color: black;
+  font-family: "Open Sans", "Helvetica", "Arial" !important;
 }
 .navbar .navbar-collapse {
   text-align: left;

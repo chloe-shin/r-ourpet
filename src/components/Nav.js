@@ -123,6 +123,7 @@ export default function NavBar(props) {
                                         <ListItemText primary="Boardings Management" />
                                     </StyledMenuItem>
                                     </Link>
+                                    
                                     :
                                     <Link to="/bookings-for-user">
                                     <StyledMenuItem>
@@ -135,12 +136,14 @@ export default function NavBar(props) {
                                 }
                                 {props.user && props.user.is_sitter 
                                     ? 
+                                    <Link to="/bookings-for-user">
                                     <StyledMenuItem>
                                         <ListItemIcon>
-                                            <SettingsTwoToneIcon fontSize="small" />
+                                            <CardTravelTwoToneIcon fontSize="small" />
                                         </ListItemIcon>
-                                        <ListItemText primary="Settings" />
+                                        <ListItemText primary="Boardings" />
                                     </StyledMenuItem>
+                                    </Link>
                                     :
                                     <StyledMenuItem>
                                         <ListItemIcon>
@@ -151,7 +154,12 @@ export default function NavBar(props) {
                                 }
                                 {props.user && props.user.is_sitter 
                                     ?
-                                    <></>
+                                    <StyledMenuItem>
+                                    <ListItemIcon>
+                                        <SettingsTwoToneIcon fontSize="small" />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Settings" />
+                                </StyledMenuItem>
                                     : 
                                     <StyledMenuItem>
                                         <ListItemIcon>

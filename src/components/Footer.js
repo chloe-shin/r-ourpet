@@ -11,7 +11,6 @@ function Footer() {
 					<ul className="list-unstyled quick-links">
 						<li><a href="javascript:void();"><i className="fa fa-angle-double-right"></i>Home</a></li>
 						<li><a href="javascript:void();"><i className="fa fa-angle-double-right"></i>About</a></li>
-					
 					</ul>
 				</div>
 				<div className="col-xs-12 col-sm-4 col-md-4">

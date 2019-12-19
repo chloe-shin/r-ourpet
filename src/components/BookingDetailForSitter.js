@@ -78,10 +78,6 @@ export default function BookingDetailForSitter() {
       }
  
     const handleConfirm = async(e) => {
-          // e.preventDefault()
-          // setBooking ({
-          //   is_confirmed: true})
-          // const body = {...booking}
 
           const res = await fetch((process.env.REACT_APP_BURL + "/booking/" + par.id +"/confirm"), {
           method: 'POST',
@@ -114,22 +110,24 @@ export default function BookingDetailForSitter() {
         history.push('/bookings-for-sitter')
       }
     }
-    
-    // const handleReject = async () => {
-    //     const res = await fetch (process.env.REACT_APP_BURL + "/bookings/" + par.id + "/reject", {
-    //         method: "POST",
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //           Authorization: `Token ${localStorage.getItem('token')}`
-    //     }})   
-    //     if (res.ok) {
-    //         const data = await res.json()
-    //         setBooking(data.booking)
-    //         if (data.success == true){
-    //             history.push('/bookings-for-user')
-    //         }
-    //     } 
-    //   }
+
+  //  const handleDelete = async(e) => {
+  //    const res = await fetch((process.env.REACT_APP_BURL + '/bookings/' + par.id + '/detail/delete'), {
+  //      method:'POST',
+  //      headers: {
+  //        "Content-Type": "application/json",
+  //        Authorization: `Token ${localStorage.getItem('token')}`
+  //      }
+  //    })
+  //    if (res.ok) {
+  //      const data = await res.json()
+  //      setBooking(data.bookings)
+  //      if (data.success == true){
+  //        alert('successfully deleted')
+  //        history.push('/bookings-for-sitter')
+  //      }
+  //    }
+  //  }
 
     //Mui library
     const [open, setOpen] = React.useState(false);
@@ -186,7 +184,7 @@ export default function BookingDetailForSitter() {
 
                 <p> Booking status:</p> 
                 <BookingStatusDetail booking={booking} />
-
+            <hr/>
                 <Button className="mr-2" variant="success" onClick={handleClickOpened}> Confirm booking 
                 </Button>
                 <Dialog onClose={handleClosed} aria-labelledby="customized-dialog-title" open={opened}>
@@ -230,6 +228,8 @@ export default function BookingDetailForSitter() {
                     </Button>
                 </DialogActions>
               </Dialog>
+
+              
             </div>
             </Col>
             <Col sm={1} md={1} lg={1}></Col>
