@@ -44,11 +44,20 @@ export default function SitterDetail(props) {
                     </Box>
                     <p> <i class="fas fa-map-marker-alt"></i> &nbsp; {sitter && sitter.city} </p>
                     <p> <i class="fas fa-quote-left"></i> &nbsp;{sitter && sitter.quote} </p>
-                   
+                    {props.user ? 
                     <Link to= {'/sitter-detail/'+ (sitter && sitter.sitter_id) + '/contact'} >
-                        {props.user ? <button className="contact"> <i class="fas fa-envelope"></i> &nbsp; Contact {sitter && sitter.name} </button> :
-                        <button disabled={true} className="contact"> <i class="fas fa-envelope"></i> &nbsp; Login to contact {sitter && sitter.name} </button>}
-                   </Link>
+                        
+                            <button className="contact"> <i class="fas fa-envelope">
+                                </i> &nbsp; Contact {sitter && sitter.name} 
+                            </button> 
+                    </Link>    
+                            :
+                    <Link to= {'/login'} >
+                            <button className="contact"> 
+                            <i class="fas fa-sign-in-alt"></i> &nbsp; Login to contact {sitter && sitter.name} 
+                            </button>
+                    </Link>
+                    }
                     <br/>
                     <br/>
                     <div className="service" >

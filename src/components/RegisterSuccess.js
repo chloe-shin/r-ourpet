@@ -11,17 +11,18 @@ export default function RegisterSuccess() {
         <br/>
         <br/>
 
-            <h3> Thank you
-            <br/> Successfully Registered! </h3>
+            <h4 style={{fontFamily:'Open Sans'}}> Thank you
+            <br/><br/> Successfully registered! </h4>
             <br/>
             <br/>   
-           <Link to='/login'> <button style={{backgroundColor: '#FFD256', 
+           <a href='/login' className="btn" style={{backgroundColor: '#FFD256', 
                                          color:'white', 
                                          border:'none',
                                          padding:'12px 10px',
                                          borderRadius:'5px',
                                          boxShadow: '1px 3px 3px rgba(0,0,0,.3)',
-                                         width: '200px'}}> Go to login </button></Link>
+                                         width: '200px'
+                                         }}> Go to login </a>
         </div>
     )
 }

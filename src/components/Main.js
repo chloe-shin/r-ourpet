@@ -36,7 +36,10 @@ export default function Main(props) {
              />
              }
          />
-                <Route exact path="/besitter" component={BeSitter} />
+                <Route path="/besitter" 
+                render = {() => <BeSitter
+                user={props.user}/>} />
+              
                 <Route exact path="/sitter-register" component={SitterRegister} />
                 <Route exact path="/sitter-register-successful" component={SitterSuccess} />
 

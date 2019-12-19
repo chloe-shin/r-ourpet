@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 
-function BeSitter() {
+function BeSitter(props) {
     return (
         <div className="besitter" style={{ color: "white", fontFamily:"Open Sans" }}>
         <div>
@@ -15,7 +15,14 @@ function BeSitter() {
         Check the requests from customer and confirm the booking.<br/><br/>
         3. Get paid
         Payments are ready for withdrawal two days after you have completed a service.<br/><br/>
-        <Link to="/sitter-register"><button className="start"> <strong>Get Started</strong> </button></Link>
+        {props.user? 
+        <Link to="/sitter-register">
+        <button className="start"> <strong>Get Started</strong> </button>
+        </Link>:
+        <Link to="/login">
+        <button className="start"> <strong><i class="fas fa-sign-in-alt"></i> Log in to start</strong> </button>
+        </Link>
+        }
         </div>
         
         
