@@ -42,6 +42,7 @@ export default function Main(props) {
 
                 <Route exact path="/sitter-detail/:id"
                     render={() => <SitterDetail
+                        user={props.user}
                     />
                     }
                 />

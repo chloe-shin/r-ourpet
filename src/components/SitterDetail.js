@@ -46,8 +46,9 @@ export default function SitterDetail(props) {
                     <p> <i class="fas fa-quote-left"></i> &nbsp;{sitter && sitter.quote} </p>
                    
                     <Link to= {'/sitter-detail/'+ (sitter && sitter.sitter_id) + '/contact'} >
-                        <button className="contact"> <i class="fas fa-envelope"></i> &nbsp; Contact {sitter && sitter.name} </button>
-                    </Link>
+                        {props.user ? <button className="contact"> <i class="fas fa-envelope"></i> &nbsp; Contact {sitter && sitter.name} </button> :
+                        <button disabled={true} className="contact"> <i class="fas fa-envelope"></i> &nbsp; Login to contact {sitter && sitter.name} </button>}
+                   </Link>
                     <br/>
                     <br/>
                     <div className="service" >
