@@ -38,7 +38,7 @@ export default function SitterList(props) {
             return (
               <Row className="sitters_list" style={{ borderBottom: '0.5px solid rgba(0,0,0,0.3)', padding: '15px 0px' }}>
                 <Col sm="3" md="3" lg="3">
-                  <img src={s.image} width="100%" className="mr " />
+                  <img src={s.image} width="150" height="150" style={{borderRadius:"0%"}} className="mr " />
                 </Col>
                 <Col sm="9" md="9" lg="9">
                   <Link to={"/sitter-detail/" + s.sitter_id}>
